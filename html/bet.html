@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+<meta charset="UTF-8">
+<title>bet999</title>
+
+<style>
+
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    font-family: Arial, sans-serif;
+  }
+
+  .jogo {
+    text-align: center;
+    border: 3px solid #000;
+    padding: 30px;
+  }
+
+  .slots {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  .slot {
+    width: 110px;
+    height: 70px;
+    line-height: 70px;
+    border: 2px solid #000;
+    font-size: 22px;
+    font-weight: bold;
+  }
+
+  button {
+    font-size: 20px;
+    padding: 10px 24px;
+    cursor: pointer;
+  }
+
+  #resultado img {
+    display: none;
+    width: 200px;
+    margin-top: 20px;
+  }
+
+</style>
+
+</head>
+
+<body>
+
+<div class="jogo">
+
+  <h1>jogo do bixo</h1>
+
+  <div class="slots">
+
+    <div class="slot" id="s1">felipe</div>
+    <div class="slot" id="s2">gustavo</div>
+    <div class="slot" id="s3">carlos</div>
+
+  </div>
+
+  <button onclick="girar()">GIRAR</button>
+
+  <p id="msg">CAPITALISMO!!!!!!</p>
+
+
+
+
+  <div id="resultado">
+
+    <!-- IMAGENS DE GANHAR -->
+    <img id="ganhou1" src="https://mail.google.com/mail/u/0?ui=2&ik=2e17e482d8&attid=0.6&permmsgid=msg-f:1878411759379811180&th=1a11758afbc00b6c&view=att&disp=safe&realattid=1a117586b657865fa5e5&zw">
+    <img id="ganhou2" src="https://mail.google.com/mail/u/0?ui=2&ik=2e17e482d8&attid=0.5&permmsgid=msg-f:1878411759379811180&th=1a11758afbc00b6c&view=att&disp=safe&realattid=1a117586b657857e2dd6&zw">
+    <img id="ganhou3" src="https://mail.google.com/mail/u/0?ui=2&ik=2e17e482d8&attid=0.4&permmsgid=msg-f:1878411759379811180&th=1a11758afbc00b6c&view=att&disp=safe&realattid=1a117586b65787411df4&zw">
+
+    <!-- IMAGENS DE PERDER -->
+    <img id="perdeu1" src="https://mail.google.com/mail/u/0?ui=2&ik=2e17e482d8&attid=0.3&permmsgid=msg-f:1878411759379811180&th=1a11758afbc00b6c&view=att&disp=safe&realattid=1a117572a69783bb3db1&zw">
+    <img id="perdeu2" src="https://mail.google.com/mail/u/0?ui=2&ik=2e17e482d8&attid=0.2&permmsgid=msg-f:1878411759379811180&th=1a11758afbc00b6c&view=att&disp=safe&realattid=1a117572a69781f84d93&zw">
+    <img id="perdeu3" src="https://mail.google.com/mail/u/0?ui=2&ik=2e17e482d8&attid=0.1&permmsgid=msg-f:1878411759379811180&th=1a11758afbc00b6c&view=att&disp=safe&realattid=1a117572a69782d9c5a2&zw">
+
+  </div>
+
+</div>
+
+
+<script>
+
+  var pessoas = [
+    "amanda",
+    "gustavo",
+    "felipe",
+    "muryllo",
+    "murilo",
+    "miguel",
+    "kauã",
+    "luis",
+    "carlos"
+  ];
+
+
+  function sortear() {
+    return pessoas[Math.floor(Math.random() * pessoas.length)];
+  }
+
+
+  function esconderImagens() {
+
+    var imagens = document.querySelectorAll("#resultado img");
+
+    imagens.forEach(function(imagem) {
+      imagem.style.display = "none";
+    });
+
+  }
+
+
+  function girar() {
+
+    var a = sortear();
+    var b = sortear();
+    var c = sortear();
+
+
+    document.getElementById("s1").textContent = a;
+    document.getElementById("s2").textContent = b;
+    document.getElementById("s3").textContent = c;
+
+
+    esconderImagens();
+
+
+    if (a === b && b === c) {
+
+      document.getElementById("msg").textContent =
+        "CARALHOOOO";
+
+
+      var numero = Math.floor(Math.random() * 3) + 1;
+
+
+      document.getElementById("ganhou" + numero).style.display =
+        "block";
+
+
+    } else {
+
+      document.getElementById("msg").textContent =
+        "não a volta";
+
+
+      var numero = Math.floor(Math.random() * 3) + 1;
+
+
+      document.getElementById("perdeu" + numero).style.display =
+        "block";
+
+    }
+
+  }
+
+</script>
+
+</body>
+</html>
+

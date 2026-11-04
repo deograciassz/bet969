@@ -1,0 +1,9 @@
+.seu-elemento {
+    transition: 0.3s;
+}
+.seu-elemento:hover {
+    transform: scale(1.1); 
+}
+
+
+
